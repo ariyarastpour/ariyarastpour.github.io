@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume - Ariya Rastpour</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8edf5 0%, #d5dce6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            line-height: 1.7;
+            color: #1e2a3a;
+            transition: background 0.3s ease;
+        }
+
+        .resume-card {
+            max-width: 950px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            padding: 45px 50px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 650px) {
+            .resume-card {
+                padding: 25px 20px;
+            }
+        }
+
+        /* ===== LANGUAGE TOGGLE BUTTON ===== */
+        .lang-toggle-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 18px;
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #f0f4fe;
+            border: 2px solid #2c7be5;
+            border-radius: 40px;
+            padding: 6px 8px 6px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+            font-weight: 600;
+            font-size: 14px;
+            color: #0b1a33;
+            box-shadow: 0 2px 8px rgba(44, 123, 229, 0.15);
+        }
+
+        .lang-toggle:hover {
+            background: #e3ebfd;
+            transform: scale(1.02);
+            box-shadow: 0 4px 14px rgba(44, 123, 229, 0.25);
+        }
+
+        .lang-toggle .toggle-track {
+            width: 48px;
+            height: 26px;
+            background: #cbd5e1;
+            border-radius: 30px;
+            position: relative;
+            transition: background 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .lang-toggle .toggle-track .toggle-thumb {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .lang-toggle.active .toggle-track {
+            background: #2c7be5;
+        }
+
+        .lang-toggle.active .toggle-track .toggle-thumb {
+            transform: translateX(22px);
+        }
+
+        .lang-toggle .lang-label {
+            font-size: 13px;
+            letter-spacing: 0.3px;
+        }
+
+        .lang-toggle .lang-label .fa {
+            font-style: normal;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 4px solid #2c7be5;
+            padding-bottom: 22px;
+            margin-bottom: 28px;
+        }
+
+        .header-left h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0b1a33;
+            letter-spacing: -0.5px;
+        }
+
+        .header-left .badge-age {
+            display: inline-block;
+            background: #2c7be5;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 2px 14px;
+            border-radius: 30px;
+            margin-top: 6px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 15px;
+            color: #2c3e50;
+            line-height: 1.9;
+        }
+
+        .header-right a {
+            color: #2c7be5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .header-right a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 650px) {
+            .header {
+                flex-direction: column;
+            }
+            .header-right {
+                text-align: left;
+                margin-top: 12px;
+            }
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0b1a33;
+            border-bottom: 2px solid #e9edf4;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title span {
+            background: #2c7be5;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 30px;
+            background: #f8faff;
+            padding: 18px 22px;
+            border-radius: 14px;
+            border-left: 5px solid #2c7be5;
+        }
+
+        .skills-grid li {
+            list-style: none;
+            padding: 4px 0;
+        }
+
+        .skills-grid strong {
+            color: #0b1a33;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #e9edf4;
+            padding: 0 12px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #2c3e50;
+            margin-left: 4px;
+        }
+
+        @media (max-width: 550px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+        }
+
+        /* ===== PROJECTS ===== */
+        .project-item {
+            background: #fafcff;
+            border-radius: 14px;
+            padding: 16px 22px;
+            margin-bottom: 14px;
+            border: 1px solid #eef2f9;
+            transition: 0.2s;
+        }
+
+        .project-item:hover {
+            border-color: #b3c9f0;
+            background: #f5f9ff;
+        }
+
+        .project-item h4 {
+            font-size: 17px;
+            color: #0b1a33;
+            margin-bottom: 4px;
+        }
+
+        .project-item .tech {
+            font-size: 13px;
+            color: #2c7be5;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .project-item ul {
+            padding-left: 22px;
+            margin-top: 4px;
+        }
+
+        .project-item ul li {
+            font-size: 15px;
+        }
+
+        /* ===== EDUCATION / COURSES ===== */
+        .edu-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #e9edf4;
+        }
+
+        .edu-item:last-child {
+            border-bottom: none;
+        }
+
+        .edu-item .title {
+            font-weight: 600;
+            color: #0b1a33;
+        }
+
+        .edu-item .meta {
+            color: #5a6f88;
+            font-size: 14px;
+        }
+
+        /* ===== ATTRIBUTES ===== */
+        .attr-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 30px;
+            background: #f8faff;
+            padding: 16px 22px;
+            border-radius: 14px;
+        }
+
+        .attr-grid li {
+            list-style: none;
+            padding: 3px 0;
+        }
+
+        .attr-grid li::before {
+            content: "✓ ";
+            color: #2c7be5;
+            font-weight: 700;
+        }
+
+        @media (max-width: 550px) {
+            .attr-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-note {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 15px;
+            background: #f0f4fe;
+            padding: 14px;
+            border-radius: 14px;
+            color: #0b1a33;
+            border: 1px solid #dce5f5;
+            font-weight: 500;
+        }
+
+        .footer-note span {
+            background: #2c7be5;
+            color: #fff;
+            padding: 2px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-left: 6px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e9edf4;
+            margin: 10px 0 20px 0;
+        }
+
+        /* ===== HIDE / SHOW LANGUAGES ===== */
+        .lang-fa {
+            display: block;
+        }
+        .lang-en {
+            display: none;
+        }
+
+        body.lang-en .lang-fa {
+            display: none;
+        }
+        body.lang-en .lang-en {
+            display: block;
+        }
+
+        body.lang-fa .lang-fa {
+            display: block;
+        }
+        body.lang-fa .lang-en {
+            display: none;
+        }
+
+        /* ===== PRINT FRIENDLY ===== */
+        @media print {
+            body {
+                background: #fff;
+                padding: 10px;
+            }
+            .resume-card {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .project-item:hover {
+                background: #fafcff;
+                border-color: #eef2f9;
+            }
+            .lang-toggle-wrapper {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="lang-fa">
+
+    <div class="resume-card">
+
+        <!-- ===== LANGUAGE TOGGLE ===== -->
+        <div class="lang-toggle-wrapper">
+            <div class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+                <span class="lang-label">
+                    <span class="fa">🇮🇷</span> <span id="langLabel">فارسی</span>
+                </span>
+                <div class="toggle-track">
+                    <div class="toggle-thumb"></div>
+                </div>
+                <span class="lang-label">
+                    <span class="fa">🇬🇧</span> <span id="langLabelEn">EN</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- ========== HEADER ========== -->
+        <div class="header">
+            <div class="header-left">
+                <h1>
+                    <span class="lang-fa">آریا رستپور</span>
+                    <span class="lang-en">Ariya Rastpour</span>
+                </h1>
+                <div class="badge-age">
+                    <span class="lang-fa">۱۷ ساله • دانش‌آموز ریاضی</span>
+                    <span class="lang-en">17 y/o • Math Student</span>
+                </div>
+            </div>
+            <div class="header-right">
+                📞 <a href="tel:+989119646800">+98 911 964 6800</a><br />
+                ✉️ <a href="mailto:rastpourariya@gmail.com">rastpourariya@gmail.com</a><br />
+                <span class="lang-fa">📍 اصفهان، ایران</span>
+                <span class="lang-en">📍 Isfahan, Iran</span><br />
+                🐙 <a href="https://github.com/ariyarastpour" target="_blank">github.com/ariyarastpour</a>
+            </div>
+        </div>
+
+        <!-- ========== SUMMARY ========== -->
+        <div class="section-title"><span>⦿</span> 
+            <span class="lang-fa">خلاصه حرفه‌ای</span>
+            <span class="lang-en">Professional Summary</span>
+        </div>
+        <p style="font-size: 15.5px; background: #f8faff; padding: 16px 22px; border-radius: 14px; border-right: 4px solid #2c7be5;">
+            <span class="lang-fa">
+                دانش‌آموز ۱۷ سالهٔ رشتهٔ ریاضی با علاقهٔ شدید به توسعهٔ وب. به‌صورت خودآموز پایتون و فریم‌ورک Django را فراگرفته و چندین پروژهٔ عملی را از صفر تا انتها انجام داده است. در حال حاضر به‌دنبال فرصت کارآموزی در یک تیم حرفه‌ای است تا مهارت‌های فنی خود را در پروژه‌های واقعی به‌کار گیرد و در محیطی مشارکتی به یادگیری ادامه دهد.
+            </span>
+            <span class="lang-en">
+                A motivated 17-year-old Mathematics student with a strong passion for web development. Self-taught in Python and Django framework, with several practical projects completed from scratch. Currently seeking an internship opportunity in a professional team to apply technical skills in real-world projects and continue learning in a collaborative environment.
+            </span>
+        </p>
+
+        <!-- ========== SKILLS ========== -->
+        <div class="section-title"><span>⦿</span> 
+            <span class="lang-fa">مهارت‌های فنی</span>
+            <span class="lang-en">Technical Skills</span>
+        </div>
+        <ul class="skills-grid">
+            <li>
+                <span class="lang-fa"><strong>زبان‌های برنامه‌نویسی:</strong></span>
+                <span class="lang-en"><strong>Programming Languages:</strong></span>
+                Python <span class="skill-tag"><span class="lang-fa">پیشرفته • آماده پروژه</span><span class="lang-en">Advanced • Project Ready</span></span>
+            </li>
+            <li>
+                <span class="lang-fa"><strong>فریم‌ورک و فرانت‌اند:</strong></span>
+                <span class="lang-en"><strong>Framework &amp; Frontend:</strong></span>
+                Django, HTML5, CSS3, TailwindCSS <span class="skill-tag"><span class="lang-fa">متوسط • در حال یادگیری</span><span class="lang-en">Intermediate • Learning</span></span>
+            </li>
+            <li>
+                <span class="lang-fa"><strong>DevOps و ابزارها:</strong></span>
+                <span class="lang-en"><strong>DevOps &amp; Tools:</strong></span>
+                Git, GitHub, Docker <span class="skill-tag"><span class="lang-fa">آشنایی با کانتینرسازی و کنترل نسخه</span><span class="lang-en">Familiar with Containerization &amp; VCS</span></span>
+            </li>
+            <li>
+                <span class="lang-fa"><strong>زبان‌ها:</strong></span>
+                <span class="lang-en"><strong>Languages:</strong></span>
+                <span class="lang-fa">فارسی <span class="skill-tag">زبان مادری</span> • انگلیسی <span class="skill-tag">مهارت خواندن و نوشتن تخصصی</span></span>
+                <span class="lang-en">Persian <span class="skill-tag">Native</span> • English <span class="skill-tag">Technical Reading &amp; Writing</span></span>
+            </li>
+        </ul>
+
+        <!-- ========== PROJECTS ========== -->
+        <div class="section-title"><span>⦿</span> 
+            <span class="lang-fa">پروژه‌های عملی</span>
+            <span class="lang-en">Practical Projects</span>
+        </div>
+
+        <div class="project-item">
+            <h4><span class="lang-fa">📝 وبلاگ شخصی با Django</span><span class="lang-en">📝 Personal Blog with Django</span></h4>
+            <ul>
+                <li class="lang-fa">طراحی و پیاده‌سازی وبلاگی کامل با قابلیت ایجاد، ویرایش و نمایش پست‌ها</li>
+                <li class="lang-en">Designed and implemented a full-featured blog with post creation, editing, and display</li>
+                <li class="lang-fa">پیاده‌سازی سیستم احراز هویت امن (ثبت‌نام، ورود، خروج)</li>
+                <li class="lang-en">Implemented secure user authentication system (registration, login, logout)</li>
+                <li class="lang-fa">راه‌اندازی پنل مدیریت برای مدیریت محتوا</li>
+                <li class="lang-en">Set up admin panel for content management</li>
+            </ul>
+            <div class="tech">🔧 Python • Django • HTML • CSS</div>
+        </div>
+
+        <div class="project-item">
+            <h4><span class="lang-fa">📱 صفحهٔ فرود مدرن و واکنش‌گرا</span><span class="lang-en">📱 Modern Responsive Landing Page</span></h4>
+            <ul>
+                <li class="lang-fa">طراحی صفحهٔ فرود کاملاً واکنش‌گرا با ظاهری مدرن و حرفه‌ای</li>
+                <li class="lang-en">Designed a fully responsive landing page with a modern and professional appearance</li>
+                <li class="lang-fa">بهینه‌سازی نمایش در تمام دستگاه‌ها (موبایل، تبلت، دسکتاپ)</li>
+                <li class="lang-en">Optimized display across all devices (mobile, tablet, desktop)</li>
+                <li class="lang-fa">استفاده از رویکرد utility-first برای توسعهٔ سریع‌تر</li>
+                <li class="lang-en">Used utility-first approach for faster development</li>
+            </ul>
+            <div class="tech">🔧 HTML5 • TailwindCSS</div>
+        </div>
+
+        <div class="project-item">
+            <h4><span class="lang-fa">🤖 اسکریپت اتوماسیون با Python</span><span class="lang-en">🤖 Python Automation Script</span></h4>
+            <ul>
+                <li class="lang-fa">توسعهٔ اسکریپتی برای دریافت و پردازش خودکار داده از APIهای مختلف</li>
+                <li class="lang-en">Developed a script to automatically fetch and process data from various APIs</li>
+                <li class="lang-fa">پردازش و ذخیره‌سازی داده در ساختارهای مناسب</li>
+                <li class="lang-en">Processed and stored data in appropriate structures</li>
+            </ul>
+            <div class="tech">🔧 Python • Requests Library</div>
+        </div>
+
+        <!-- ========== EDUCATION ========== -->
+        <div class="section-title"><span>⦿</span> 
+            <span class="lang-fa">تحصیلات</span>
+            <span class="lang-en">Education</span>
+        </div>
+        <div class="edu-item">
+            <span class="title"><span class="lang-fa">دبیرستان شهید امام خمینی (اصفهان)</span><span class="lang-en">Shahid Imam Khomeini High School, Isfahan</span></span>
+            <span class="meta"><span class="lang-fa">رشتهٔ ریاضی و فیزیک • ۱۴۰۳ – ۱۴۰۶</span><span class="lang-en">Mathematics &amp; Physics • 2024 – 2027</span></span>
+        </div>
+        <div style="font-size: 14.5px; color: #3d5775; padding: 4px 0 8px 0;">
+            <span class="lang-fa">📚 دروس مرتبط: ریاضی (تقویت منطق برنامه‌نویسی)، فیزیک، انگلیسی (مهارت خواندن متون تخصصی)</span>
+            <span class="lang-en">📚 Relevant Coursework: Mathematics (Programming logic), Physics, English (Technical documentation)</span>
+        </div>
+
+        <!-- ========== COURSES ========== -->
+        <div class="section-title"><span>⦿</span> 
+            <span class="lang-fa">دوره‌های تخصصی</span>
+            <span class="lang-en">Specialized Courses</span>
+        </div>
+        <div class="edu-item">
+            <span class="title"><span class="lang-fa">دورهٔ مقدماتی Django</span><span class="lang-en">Django Beginner Course</span></span>
+            <span class="meta"><span class="lang-fa">مکتب‌خونه • دریافت مدرک تا ۲ روز دیگر</span><span class="lang-en">Maktabkhooneh • Certificate in 2 days</span></span>
+        </div>
+        <div class="edu-item">
+            <span class="title"><span class="lang-fa">دورهٔ پیشرفتهٔ Django</span><span class="lang-en">Django Advanced Course</span></span>
+            <span class="meta"><span class="lang-fa">مکتب‌خونه • در حال تکمیل</span><span class="lang-en">Maktabkhooneh • Currently completing</span></span>
+        </div>
+
+        <!-- ========== ATTRIBUTES ========== -->
+        <div class="section-title"><span>⦿</span> 
+            <span class="lang-fa">ویژگی‌های فردی</span>
+            <span class="lang-en">Personal Attributes</span>
+        </div>
+        <ul class="attr-grid">
+            <li class="lang-fa">یادگیرندهٔ خودانگیخته — توانایی یادگیری مفاهیم جدید از طریق مستندات و فیلم‌های آموزشی</li>
+            <li class="lang-en">Self-Motivated Learner — Ability to learn through documentation and tutorials</li>
+            <li class="lang-fa">مسئولیت‌پذیر و متعهد — پایبندی به ضرب‌الاجل‌ها و تحویل به‌موقع پروژه</li>
+            <li class="lang-en">Responsible &amp; Committed — Adherence to deadlines and timely delivery</li>
+            <li class="lang-fa">کار تیمی — علاقه به کار گروهی و استفاده از GitHub برای همکاری</li>
+            <li class="lang-en">Team Player — Enjoys collaboration and uses GitHub for cooperation</li>
+            <li class="lang-fa">حل‌کنندهٔ مسئله — رویکرد منطقی در دیباگ و چالش‌های کدنویسی</li>
+            <li class="lang-en">Problem Solver — Logical approach to debugging and coding challenges</li>
+            <li class="lang-fa">ذهن کنجکاو — اشتیاق به درک عمیق مفاهیم و فناوری‌های جدید</li>
+            <li class="lang-en">Curious Mindset — Eager to deeply understand concepts and new technologies</li>
+        </ul>
+
+        <!-- ========== ACHIEVEMENTS ========== -->
+        <div class="section-title"><span>⦿</span> 
+            <span class="lang-fa">دستاوردها و فعالیت‌ها</span>
+            <span class="lang-en">Achievements &amp; Activities</span>
+        </div>
+        <ul style="padding-left: 22px; margin-bottom: 6px;">
+            <li class="lang-fa">تکمیل و انتشار ۳ پروژهٔ عملی در گیت‌هاب</li>
+            <li class="lang-en">Completed and published 3 practical projects on GitHub</li>
+            <li class="lang-fa">گذراندن دوره‌های تخصصی Django در مکتب‌خونه</li>
+            <li class="lang-en">Completed specialized Django courses at Maktabkhooneh</li>
+            <li class="lang-fa">آشنایی با کنترل نسخه و همکاری تیمی از طریق Git و GitHub</li>
+            <li class="lang-en">Familiar with version control and team collaboration through Git and GitHub</li>
+            <li class="lang-fa">آشنایی مقدماتی با Docker برای راه‌اندازی محیط توسعه</li>
+            <li class="lang-en">Basic familiarity with Docker for development environment setup</li>
+        </ul>
+
+        <hr />
+
+        <!-- ========== FOOTER ========== -->
+        <div class="footer-note">
+            ✅ <span class="lang-fa">آماده برای کارآموزی —</span><span class="lang-en">Available for Internship —</span>
+            <span><span class="lang-fa">تابستان ۱۴۰۵</span><span class="lang-en">Summer 2026</span></span>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const body = document.body;
+            const toggle = document.getElementById('langToggle');
+            const label = document.getElementById('langLabel');
+
+            if (body.classList.contains('lang-fa')) {
+                body.classList.remove('lang-fa');
+                body.classList.add('lang-en');
+                toggle.classList.add('active');
+                label.textContent = 'فارسی';
+            } else {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-fa');
+                toggle.classList.remove('active');
+                label.textContent = 'EN';
+            }
+        }
+    </script>
+
+</body>
+</html>
