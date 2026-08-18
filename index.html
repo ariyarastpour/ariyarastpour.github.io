@@ -33,10 +33,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
 
-        /* ===== دو ستون ===== */
         .col-right {
             padding: 40px 35px;
             background: #232837;
@@ -48,7 +46,6 @@
             background: #1e2332;
         }
 
-        /* ===== عنوان ===== */
         .name {
             font-size: 28px;
             font-weight: 700;
@@ -70,7 +67,6 @@
             color: #f0c27f;
         }
 
-        /* ===== بخش‌ها ===== */
         .section {
             margin-bottom: 22px;
         }
@@ -86,7 +82,6 @@
             padding-bottom: 6px;
         }
 
-        /* ===== متن‌ها ===== */
         .text-muted {
             color: #a8b2d1;
             font-size: 14px;
@@ -97,7 +92,6 @@
             font-size: 14px;
         }
 
-        /* ===== مهارت‌ها ===== */
         .skill-item {
             display: flex;
             justify-content: space-between;
@@ -115,7 +109,6 @@
             font-size: 13px;
         }
 
-        /* ===== پروژه‌ها ===== */
         .project {
             margin-bottom: 14px;
         }
@@ -138,7 +131,15 @@
             font-weight: 600;
         }
 
-        /* ===== لیست ===== */
+        .project .tech a {
+            color: #f0c27f;
+            text-decoration: none;
+        }
+
+        .project .tech a:hover {
+            text-decoration: underline;
+        }
+
         ul {
             list-style: none;
             padding: 0;
@@ -159,7 +160,6 @@
             left: 0;
         }
 
-        /* ===== اطلاعات تماس ===== */
         .contact-item {
             color: #a8b2d1;
             font-size: 14px;
@@ -175,7 +175,6 @@
             text-decoration: underline;
         }
 
-        /* ===== فوتر ===== */
         .footer-note {
             margin-top: 20px;
             text-align: center;
@@ -190,17 +189,14 @@
             font-weight: 600;
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 800px) {
             .resume-card {
                 grid-template-columns: 1fr;
             }
-
             .col-right {
                 border-right: none;
                 border-bottom: 1px solid #2f364a;
             }
-
             .col-right,
             .col-left {
                 padding: 28px 22px;
@@ -253,6 +249,9 @@
             .project .tech {
                 color: #b8860b;
             }
+            .project .tech a {
+                color: #b8860b;
+            }
             ul li {
                 color: #444;
             }
@@ -290,7 +289,7 @@
             <!-- تماس -->
             <div class="section">
                 <div class="section-title">تماس</div>
-                <div class="contact-item">📞 ۹۸ ۹۱۱ ۹۶۴ ۶۸۰۰+</div>
+                <div class="contact-item">📞 +98 911 964 6800</div>
                 <div class="contact-item">✉️ <a href="mailto:rastpourariya@gmail.com">rastpourariya@gmail.com</a></div>
                 <div class="contact-item">📍 اصفهان، ایران</div>
                 <div class="contact-item">🐙 <a href="https://github.com/ariyarastpour" target="_blank">github.com/ariyarastpour</a></div>
@@ -310,11 +309,11 @@
 
                 <div class="skill-item">
                     <span class="label">پایتون</span>
-                    <span class="level">پیشرفته</span>
+                    <span class="level">متوسط</span>
                 </div>
                 <div class="skill-item">
                     <span class="label">Django</span>
-                    <span class="level">متوسط</span>
+                    <span class="level">پیشرفته</span>
                 </div>
                 <div class="skill-item">
                     <span class="label">HTML / CSS / Tailwind</span>
@@ -331,21 +330,21 @@
                 <div class="section-title">پروژه‌ها</div>
 
                 <div class="project">
-                    <h4>وبلاگ شخصی با Django</h4>
-                    <p>ایجاد، ویرایش و نمایش پست‌ها + احراز هویت</p>
-                    <span class="tech">Python • Django • HTML • CSS</span>
+                    <h4>✈️ پروژه مدیریت سفر</h4>
+                    <p>سیستم مدیریت رزرو سفر با جنگو</p>
+                    <span class="tech">🔗 <a href="https://github.com/ariyarastpour/project1" target="_blank">مشاهده در گیت‌هاب</a></span>
                 </div>
 
                 <div class="project">
-                    <h4>صفحهٔ فرود واکنش‌گرا</h4>
-                    <p>طراحی مدرن با TailwindCSS، نمایش در تمام دستگاه‌ها</p>
-                    <span class="tech">HTML5 • TailwindCSS</span>
+                    <h4>🎬 مدیریت فیلم و سریال</h4>
+                    <p>سیستم مدیریت فیلم و سریال با جنگو</p>
+                    <span class="tech">🔗 <a href="https://github.com/ariyarastpour/Project2-Movie" target="_blank">مشاهده در گیت‌هاب</a></span>
                 </div>
 
                 <div class="project">
-                    <h4>اسکریپت اتوماسیون Python</h4>
-                    <p>دریافت و پردازش داده از APIها</p>
-                    <span class="tech">Python • Requests</span>
+                    <h4>🛒 فروشگاه اینترنتی</h4>
+                    <p>فروشگاه آنلاین کامل با جنگو</p>
+                    <span class="tech">🔗 <a href="https://github.com/ariyarastpour/Project3-store" target="_blank">مشاهده در گیت‌هاب</a></span>
                 </div>
             </div>
 
@@ -396,11 +395,11 @@
 
                 <div class="skill-item">
                     <span class="label">Python</span>
-                    <span class="level">Advanced</span>
+                    <span class="level">Intermediate</span>
                 </div>
                 <div class="skill-item">
                     <span class="label">Django</span>
-                    <span class="level">Intermediate</span>
+                    <span class="level">Advanced</span>
                 </div>
                 <div class="skill-item">
                     <span class="label">HTML / CSS / Tailwind</span>
@@ -417,21 +416,21 @@
                 <div class="section-title">Projects</div>
 
                 <div class="project">
-                    <h4>Personal Blog with Django</h4>
-                    <p>Post creation, editing, display + authentication</p>
-                    <span class="tech">Python • Django • HTML • CSS</span>
+                    <h4>✈️ Travel Management</h4>
+                    <p>Travel reservation management system with Django</p>
+                    <span class="tech">🔗 <a href="https://github.com/ariyarastpour/project1" target="_blank">View on GitHub</a></span>
                 </div>
 
                 <div class="project">
-                    <h4>Responsive Landing Page</h4>
-                    <p>Modern design with TailwindCSS, fully responsive</p>
-                    <span class="tech">HTML5 • TailwindCSS</span>
+                    <h4>🎬 Movie & Series Management</h4>
+                    <p>Movie and series management system with Django</p>
+                    <span class="tech">🔗 <a href="https://github.com/ariyarastpour/Project2-Movie" target="_blank">View on GitHub</a></span>
                 </div>
 
                 <div class="project">
-                    <h4>Python Automation Script</h4>
-                    <p>Fetch &amp; process data from APIs</p>
-                    <span class="tech">Python • Requests</span>
+                    <h4>🛒 Online Store</h4>
+                    <p>Full-featured online store with Django</p>
+                    <span class="tech">🔗 <a href="https://github.com/ariyarastpour/Project3-store" target="_blank">View on GitHub</a></span>
                 </div>
             </div>
 
